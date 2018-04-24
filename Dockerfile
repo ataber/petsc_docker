@@ -59,7 +59,7 @@ ENV SUPERLU_DIST_DIR $PETSC_DIR
 ENV MUMPS_DIR $PETSC_DIR
 
 #slepc
-ENV SLEPC_VERSION 3.7.3
+ENV SLEPC_VERSION 3.7.4
 RUN wget http://slepc.upv.es/download/download.php?filename=slepc-$SLEPC_VERSION.tar.gz \
     -O slepc-$SLEPC_VERSION.tar.gz && \
     tar xfz slepc-$SLEPC_VERSION.tar.gz && rm -f slepc-$SLEPC_VERSION.rag.gz && \
