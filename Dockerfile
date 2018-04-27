@@ -22,7 +22,7 @@ ENV CXX mpicxx
 ENV FC mpif90
 ENV FF mpif77
 
-ARG LIB_DIR /usr/lib
+ENV LIB_DIR /usr/lib
 
 #petsc
 ENV PETSC_VERSION 3.7.4
