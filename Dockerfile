@@ -26,7 +26,7 @@ ENV LIB_DIR /usr/lib
 
 #petsc
 ENV PETSC_VERSION 3.7.4
-RUN mkdir /tmp && cd /tmp && \
+RUN cd /tmp && \
     wget http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-$PETSC_VERSION.tar.gz && \
     tar xf petsc-lite-$PETSC_VERSION.tar.gz && rm -f petsc-lite-$PETSC_VERSION.tar.gz && \
     cd petsc-$PETSC_VERSION && \
