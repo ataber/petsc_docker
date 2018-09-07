@@ -44,7 +44,7 @@ RUN cd /tmp && \
     	--with-shared-libraries=1 \
 	--with-x=0 \
     	COPTFLAGS='-O3' FOPTFLAGS='-O3' && \
-    make PETSC_DIR=`pwd` PETSC_ARCH=$PETSC_ARCH all && \
+    make PETSC_DIR=`pwd` PETSC_ARCH=$PETSC_ARCH -j $(cat /proc/cpuinfo | grep processor | wc -l) all && \
     make PETSC_DIR=`pwd` PETSC_ARCH=$PETSC_ARCH install && \
     cd /tmp && rm -rf petsc-$PETSC_VERSION
 
