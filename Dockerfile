@@ -24,7 +24,6 @@ ENV FF mpif77
 
 #petsc
 ENV PETSC_VERSION 3.9.3
-ENV PETSC_ARCH linux-gnu
 RUN cd /tmp && \
     wget http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-$PETSC_VERSION.tar.gz && \
     tar xf petsc-lite-$PETSC_VERSION.tar.gz && rm -f petsc-lite-$PETSC_VERSION.tar.gz && \
@@ -44,8 +43,8 @@ RUN cd /tmp && \
     	--with-shared-libraries=1 \
 	--with-x=0 \
     	COPTFLAGS='-O3' FOPTFLAGS='-O3' && \
-    make PETSC_DIR=`pwd` PETSC_ARCH=$PETSC_ARCH -j $(cat /proc/cpuinfo | grep processor | wc -l) all && \
-    make PETSC_DIR=`pwd` PETSC_ARCH=$PETSC_ARCH install && \
+    make PETSC_DIR=`pwd` -j $(cat /proc/cpuinfo | grep processor | wc -l) all && \
+    make PETSC_DIR=`pwd` install && \
     cd /tmp && rm -rf petsc-$PETSC_VERSION
 
 ENV PETSC_DIR /usr/lib/petsc-$PETSC_VERSION
