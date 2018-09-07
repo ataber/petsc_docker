@@ -24,7 +24,6 @@ ENV FF mpif77
 
 #petsc
 ENV PETSC_VERSION 3.9.3
-ENV PETSC_DIR /usr/lib/petsc-lite-$PETSC_VERSION
 ENV PETSC_ARCH linux-gnu
 RUN cd /tmp && \
     wget http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-$PETSC_VERSION.tar.gz && \
@@ -39,7 +38,7 @@ RUN cd /tmp && \
 	--download-parmetis \
 	--download-superlu \
 	--download-superlu_dist \
-	--prefix=$PETSC_DIR \
+	--prefix=/usr/lib/petsc-$PETSC_VERSION \
 	--with-clanguage=C++ \
 	--with-debugging=1 \
     	--with-shared-libraries=1 \
@@ -48,6 +47,7 @@ RUN cd /tmp && \
     make PETSC_DIR=$PETSC_DIR PETSC_ARCH=$PETSC_ARCH && \
     cd /tmp && rm -rf petsc-$PETSC_VERSION
 
+ENV PETSC_DIR /usr/lib/petsc-$PETSC_VERSION
 ENV METIS_DIR $PETSC_DIR
 ENV SCALAPACK_DIR $PETSC_DIR
 ENV PARMETIS_DIR $PETSC_DIR
