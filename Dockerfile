@@ -44,8 +44,8 @@ RUN cd /tmp && \
     	--with-shared-libraries=1 \
 	--with-x=0 \
     	COPTFLAGS='-O3' FOPTFLAGS='-O3' && \
-    make PETSC_DIR=$PETSC_DIR PETSC_ARCH=$PETSC_ARCH all && \
-    make PETSC_DIR=$PETSC_DIR PETSC_ARCH=$PETSC_ARCH install && \
+    make PETSC_DIR=`pwd` PETSC_ARCH=$PETSC_ARCH all && \
+    make PETSC_DIR=`pwd` PETSC_ARCH=$PETSC_ARCH install && \
     cd /tmp && rm -rf petsc-$PETSC_VERSION
 
 ENV PETSC_DIR /usr/lib/petsc-$PETSC_VERSION
