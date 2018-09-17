@@ -17,10 +17,6 @@ RUN apt-get update --fix-missing \
 # Make open mpi use clang
 ENV OMPI_CC clang-5.0
 ENV OMPI_CXX clang++-5.0
-ENV CC mpicc
-ENV CXX mpicxx
-ENV FC mpif90
-ENV FF mpif77
 
 #petsc
 ENV PETSC_VERSION 3.9.3
@@ -38,6 +34,10 @@ RUN cd /tmp && \
 	--download-superlu \
 	--download-superlu_dist \
 	--prefix=/usr/lib/petsc-$PETSC_VERSION \
+	--with-cc=mpicc \
+	--with-cxx=mpicxx \
+	--with-fc=mpif90 \
+	--with-ff=mpif77 \
 	--with-clanguage=C++ \
 	--with-debugging=1 \
     	--with-shared-libraries=1 \
