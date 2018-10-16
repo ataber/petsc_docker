@@ -1,4 +1,4 @@
-FROM ataber/cmake
+FROM ataber/vtk
 
 RUN apt-get update --fix-missing \
 &&  apt-get upgrade -y --force-yes \
