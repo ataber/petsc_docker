@@ -14,10 +14,6 @@ RUN apt-get update --fix-missing \
 &&  apt-get clean \
 &&  rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
-# Make open mpi use clang
-ENV OMPI_CC clang-5.0
-ENV OMPI_CXX clang++-5.0
-
 #petsc
 ENV PETSC_VERSION 3.10.2
 RUN cd /tmp && \
