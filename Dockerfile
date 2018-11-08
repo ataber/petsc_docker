@@ -29,9 +29,9 @@ RUN cd /tmp && \
 	--download-superlu_dist \
 	--prefix=/usr/lib/petsc-$PETSC_VERSION \
 	--with-clanguage=C++ \
+	--with-debugging=1 \
     	--with-shared-libraries=1 \
 	--with-x=0 \
-	--with-mpi=0 \
     	COPTFLAGS='-O3' FOPTFLAGS='-O3' && \
     make PETSC_DIR=`pwd` -j $(cat /proc/cpuinfo | grep processor | wc -l) all && \
     make PETSC_DIR=`pwd` install && \
