@@ -1,4 +1,4 @@
-FROM ataber/vtk
+FROM ataber/vtk:shared
 
 RUN apt-get update --fix-missing \
 &&  apt-get upgrade -y --force-yes \
